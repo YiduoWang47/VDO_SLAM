@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Macros.h"
-#include "Objects.h"
 #include "viz/Color.h"
 #include "viz/Display.h"
 #include "viz/DisplayTypes.h"
@@ -14,13 +13,12 @@
 
 namespace vdo
 {
-
 class OpenCvVisualizer3D : public Display
 {
 public:
   VDO_POINTER_TYPEDEFS(OpenCvVisualizer3D);
 
-  OpenCvVisualizer3D(DisplayParams::Ptr params_, const Camera& camera);
+  OpenCvVisualizer3D(DisplayParams::Ptr params_);
   ~OpenCvVisualizer3D() = default;
 
   void process(const VisualiserInput& viz_input) override;
@@ -36,9 +34,6 @@ private:
   // pose in the world frame
   std::unique_ptr<cv::viz::WCameraPosition> createPoseWidget(const gtsam::Pose3& pose_w, const cv::viz::Color& colour);
   std::unique_ptr<cv::viz::WCloud> createCloudWidget(const Landmarks& landmarks, const cv::viz::Color& colour);
-
-  void addObjectCloudWidget(WidgetsMap* widgets_map, const gtsam::Pose3& pose_w, const ObjectObservation& object);
-
   // void drawCurrentCameraPose(WidgetsMap* widgets_map);
   // void followCurrentView();
 

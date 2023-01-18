@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Macros.h"
-#include "Camera.h"
 #include "viz/OpenCvDisplay.h"
 #include "viz/OpenCvVisualizer3D.h"
 #include "viz/Display-Definitions.h"
@@ -13,7 +12,7 @@ class Visualizer
 public:
   VDO_POINTER_TYPEDEFS(Visualizer);
 
-  Visualizer(DisplayParams::Ptr params_, const Camera& camera);
+  Visualizer(DisplayParams::Ptr params_);
 
   void process(const VisualiserInput& viz_input);
 

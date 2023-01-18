@@ -4,7 +4,6 @@
 #include "Macros.h"
 #include "Camera.h"
 #include "ORBextractor.h"
-#include "Objects.h"
 #include "Frame.h"
 #include "FeatureTracker.h"
 
@@ -56,10 +55,9 @@ private:
   // for viz
   void displayFeatures(const Frame& frame);
 
-  void updateStaticTrackletMap(const FeaturePtrs& static_features);
+  void updateStaticTrackletMap(const FeaturePtrs& static_features );
 
-  // number of objects tracked
-  size_t trackDynamicObjects(Frame::Ptr frame, ObjectObservations& objects);
+  void trackDynamicObjects(Frame::Ptr frame);
 
 private:
   using TrackletMap = std::map<size_t, FeaturePtrs>;

@@ -3,7 +3,6 @@
 #include "Macros.h"
 #include "Frame.h"
 #include "Types.h"
-#include "Objects.h"
 
 #include <gtsam/geometry/Pose3.h>
 
@@ -18,9 +17,7 @@ struct FrontendOutput
   const size_t frame_id_;
   const GroundTruthInputPacket::ConstOptional ground_truth_;
 
-  ObjectObservations objects_;  // objects tracked in this frame
-
-  // in camera frame
+  //in camera frame
   TackletIdToLandmark tracklet_landmark_map_;
 
   FrontendOutput(Frame::Ptr frame)
